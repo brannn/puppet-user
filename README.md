@@ -1,7 +1,9 @@
 puppet-user
 ===========
 
-A simple Puppet module to manage standalone Unix user accounts and ssh keys
+A simple Puppet module to manage standalone Unix user accounts and ssh keys.
+ 
+If you have a small or temporary environment where running LDAP auth is overkill, this module does the job nicely.
 
 ### Usage
 
