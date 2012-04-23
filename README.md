@@ -3,7 +3,7 @@ puppet-user
 
 A simple Puppet module to manage standalone Unix user accounts and ssh keys
 
-## Usage
+### Usage
 
 Create the account:
 
