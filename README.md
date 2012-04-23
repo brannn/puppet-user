@@ -1,7 +1,7 @@
 puppet-user
 ===========
 
-Very simple Puppet module to manage standalone Unix user accounts and ssh keys
+A simple Puppet module to manage standalone Unix user accounts and ssh keys
 
 ## Usage
 
@@ -23,4 +23,4 @@ user::sshkey { 'fred':
 }
 </pre>
  
-Refer to <code> manifests/{account,sshkey}.pp</code> for all resource types.
+Refer to <code> manifests/{account,sshkey}.pp</code> for all resource types
