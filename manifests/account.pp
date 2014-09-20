@@ -1,4 +1,4 @@
-define user::account( $email, $uid ) {
+define user::account( $email, $uid, $groups ) {
 
   $username = $title
 
@@ -6,13 +6,13 @@ define user::account( $email, $uid ) {
     comment => $email,
     home    => "/home/$username",
     shell   => '/bin/bash',
-    groups  => ['deploy', 'build'],
+    groups  => $groups,
     uid     => $uid
   }
 
   group { $username:
     gid     => $uid,
-    require => user[$username]
+    require => User[$username]
   }
 
   file { "/home/$username/":
@@ -20,7 +20,7 @@ define user::account( $email, $uid ) {
     owner   => $username,
     group   => $username,
     mode    => '0750',
-    require => [ user[$username], group[$username] ]
+    require => [ User[$username], Group[$username] ]
   }
 
   file { "/home/$username/.ssh":
@@ -28,7 +28,7 @@ define user::account( $email, $uid ) {
     owner   => $username,
     group   => $username,
     mode    => '0700',
-    require => file["/home/$username/"]
+    require => File["/home/$username/"]
   }
 
   file { "/home/$username/.ssh/authorized_keys":
@@ -36,7 +36,7 @@ define user::account( $email, $uid ) {
     owner   => $username,
     group   => $username,
     mode    => '0600',
-    require => file["/home/$username/"]
+    require => File["/home/$username/"]
   }
 
 }
