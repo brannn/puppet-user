@@ -7,7 +7,6 @@ define user::sshkey( $key, $type ) {
     key     => $key,
     type    => $type,
     user    => $username,
-    require => file["/home/$username/.ssh/authorized_keys"]
+    require => File["/home/$username/.ssh/authorized_keys"]
   }
-
 }
